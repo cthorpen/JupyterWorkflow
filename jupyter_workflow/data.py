@@ -3,7 +3,7 @@ from urllib.request import urlretrieve
 
 import pandas as pd
 
-FREMONT_URL = 'https://data.seattle.gov/resource/65db-xm6k.csv$limit=50000'
+FREMONT_URL = 'https://data.seattle.gov/resource/65db-xm6k.csv'
 
 def get_fremont_data(filename='Fremont.csv', url=FREMONT_URL, force_download=False):
     """
