@@ -23,6 +23,12 @@ def get_fremont_data(filename='Fremont.csv', url=FREMONT_URL, force_download=Fal
     """
     if force_download or not os.path.exists(filename):
         urlretrieve(url, filename)
-    data = pd.read_csv('Fremont.csv', index_col='date', parse_dates=True)
+    data = pd.read_csv('Fremont.csv', index_col='date')
+    
+    try:
+        data.index = pd.to_datetime(data.index, format='%Y-%m-%dT%H:%M:%S.%f')
+    except TypeError:
+        data.index = pd.to_datetime(data.index)
+        
     data.columns = ['Total', 'Northbound', 'Southbound']
     return data
