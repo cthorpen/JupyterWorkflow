@@ -5,6 +5,6 @@ import numpy as np
 def test_fremont_data():
     data = get_fremont_data()
     assert all(data.columns == ['Total', 'Northbound', 'Southbound'])
-    assert isinstance(data.index, pd.DateTimeIndex)
+    assert isinstance(data.index, pd.DatetimeIndex)
     assert len(np.unique(data.index.time) == 24)
     
